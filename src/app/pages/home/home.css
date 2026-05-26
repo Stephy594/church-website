@@ -221,6 +221,7 @@ section{
 .event-image {
   width: 76px;
   height: 76px;
+  margin-top: -25px;
   min-width: 76px;
   border-radius: 22px;
   overflow: hidden;
