@@ -29,23 +29,36 @@
   object-fit: cover;
 }
 .info-card {
+  background: white;
+  border-radius: 28px;
+  padding: 95px 30px 35px;
+  text-align: center;
   position: relative;
-  padding: 110px 30px 35px;
-  min-height: 280px;
-  overflow: visible;
+  min-height: 320px;
+
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+
+  transition: 0.35s ease;
 }
 
 .info-card-img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
+
   border-radius: 50%;
   overflow: hidden;
-  border: 5px solid white;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+
   position: absolute;
-  top: -60px;
+
+  top: -50px;
   left: 50%;
+
   transform: translateX(-50%);
+
+  border: 5px solid white;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
   background: white;
 }
 
@@ -176,9 +189,9 @@ section{
   border: 1px solid rgba(30, 58, 138, 0.08);
 }
 
+
 .info-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 55px rgba(30, 58, 138, 0.25);
+  transform: translateY(-8px);
 }
 
 .icon-circle {
@@ -196,17 +209,19 @@ section{
 }
 
 .info-card h3 {
+  margin-top: 15px;
+  font-size: 22px;
   font-weight: 800;
-  margin-bottom: 10px;
 }
 
 .info-card p {
   color: #64748b;
-  margin-bottom: 8px;
+  margin-top: 10px;
 }
 
 .info-card h4 {
-  color: #0d6efd;
+  margin-top: 14px;
+  color: #2563eb;
   font-weight: 800;
 }
 
