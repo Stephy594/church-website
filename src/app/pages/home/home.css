@@ -224,7 +224,20 @@ section{
   color: #2563eb;
   font-weight: 800;
 }
+.event-image {
+  width: 76px;
+  height: 76px;
+  min-width: 76px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
 
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .home-about {
   background: white;
 }
