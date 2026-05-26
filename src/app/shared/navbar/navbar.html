@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <img src="images/Logo.jpg" class="nav-logo" alt="El-Shaddai Church Logo">
+      <span>El-Shaddai Church Berlin</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#churchNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="churchNavbar">
+      <div class="navbar-nav ms-auto">
+       <a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a class="nav-link" routerLink="/about" routerLinkActive="active-link">About</a>
+        <a class="nav-link" routerLink="/services" routerLinkActive="active-link">Services</a>
+        <a class="nav-link" routerLink="/events" routerLinkActive="active-link">Events</a>
+        <a class="nav-link" routerLink="/gallery" routerLinkActive="active-link">Gallery</a>
+        <a class="nav-link" routerLink="/contact" routerLinkActive="active-link">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>

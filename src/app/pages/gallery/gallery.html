@@ -1,0 +1,32 @@
+<section class="gallery-banner" data-aos="fade-down">
+  <div class="banner-overlay">
+    <h1><span>OUR</span> GALLERY</h1>
+  </div>
+</section>
+
+<section class="gallery-page py-5">
+  <div class="container text-center">
+
+    <h2 class="gallery-title">Image Gallery</h2>
+    <div class="gallery-dots"></div>
+
+    <div class="gallery-filter">
+      <button
+        *ngFor="let category of categories"
+        [class.active]="selectedCategory === category"
+        (click)="selectCategory(category)"
+      >
+        {{ category }}
+      </button>
+    </div>
+
+    <div class="row g-4 gallery-grid">
+
+      <div class="col-md-4" *ngFor="let image of filteredImages">
+        <img [src]="image.src" class="gallery-img">
+      </div>
+
+    </div>
+
+  </div>
+</section>

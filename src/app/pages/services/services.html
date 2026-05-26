@@ -1,0 +1,31 @@
+<section class="services-hero text-white text-center d-flex align-items-center" >
+  <div class="container">
+    <h1 class="display-4 fw-bold" data-aos="fade-down">Our Ministries & Services</h1>
+    <p class="lead" data-aos="fade-up">Worship, prayer, fellowship, and spiritual growth</p>
+  </div>
+</section>
+
+<section class="py-5 services-section" data-aos="flip-right">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4" *ngFor="let service of services">
+        <div class="service-card shadow">
+          <img [src]="service.image" class="service-img" />
+
+          <div class="service-content">
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.shortText }}</p>
+
+            <a
+              [routerLink]="['/services', service.slug]"
+              class="view-btn text-decoration-none"
+            >
+              View More
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

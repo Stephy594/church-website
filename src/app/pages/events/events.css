@@ -1,0 +1,81 @@
+.page-header {
+  min-height: 45vh;
+  background:
+       linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('/images/Gallery/Events.jpeg');
+  background-size: cover;
+  background-position: center 30%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  top: -140px;
+  right: -100px;
+  filter: blur(20px);
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 2px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
+  bottom: -80px;
+  left: -60px;
+}
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header h1 {
+  font-size: 64px;
+  font-weight: 900;
+  margin-bottom: 15px;
+  animation: fadeDown 1s ease;
+}
+
+.page-header p {
+  font-size: 22px;
+  color: #e0e7ff;
+  animation: fadeUp 1.2s ease;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-card {
+  border-radius: 22px;
+  padding: 30px;
+  background: #ffffff;
+}

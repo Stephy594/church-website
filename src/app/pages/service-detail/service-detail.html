@@ -1,0 +1,29 @@
+<section class="detail-hero text-white text-center d-flex align-items-center" *ngIf="service">
+  <div class="container">
+    <h1>{{ service.title }}</h1>
+    <p>{{ service.time }}</p>
+  </div>
+</section>
+
+<section class="py-5" *ngIf="service">
+  <div class="container">
+    <div class="detail-card shadow-lg">
+
+      <img [src]="service.image" class="detail-img" />
+
+      <div class="detail-content">
+        <h2>{{ service.title }}</h2>
+        <h5>{{ service.time }}</h5>
+
+        <p>
+          {{ service.description }}
+        </p>
+
+        <a routerLink="/services" class="back-btn text-decoration-none">
+          ← Back to Services
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

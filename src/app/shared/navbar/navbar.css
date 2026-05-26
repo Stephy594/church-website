@@ -1,0 +1,64 @@
+.custom-navbar {
+  background: linear-gradient(90deg, #f8f5ec, #eef4ff) !important;
+  padding: 14px 0;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.12);
+}
+
+.navbar-brand {
+  color: #17345f !important;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.nav-link {
+  color: #17345f !important;
+  font-weight: 700;
+  margin-left: 20px;
+  position: relative;
+  transition: 0.3s ease;
+}
+.nav-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nav-link:hover {
+  color: #b8860b !important;
+}
+
+.nav-link.active-link {
+  color: #b8860b !important;
+  font-weight: 900;
+}
+
+.nav-link.active-link::after {
+  content: '';
+  position: absolute;
+  left: 10%;
+  bottom: -8px;
+  width: 80%;
+  height: 3px;
+  background: #d4af37;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+}
+
+.navbar-toggler {
+  border: 1px solid #d4af37 !important;
+  padding: 6px 10px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+/* GOLD hamburger icon */
+.navbar-toggler-icon {
+  filter: brightness(0) saturate(100%)
+          invert(72%) sepia(84%)
+          saturate(492%)
+          hue-rotate(8deg)
+          brightness(102%)
+          contrast(95%);
+}
