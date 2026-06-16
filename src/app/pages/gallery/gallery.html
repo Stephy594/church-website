@@ -1,6 +1,21 @@
-<section class="gallery-banner" data-aos="fade-down">
-  <div class="banner-overlay">
-    <h1><span>OUR</span> GALLERY</h1>
+<section id="galleryHeroCarousel" class="carousel slide gallery-hero-carousel" data-bs-ride="carousel" data-bs-interval="3500">
+  <div class="carousel-inner">
+
+    <div
+      class="carousel-item"
+      *ngFor="let slide of heroSlides; let i = index"
+      [class.active]="i === 0"
+    >
+      <div
+        class="gallery-hero-slide"
+        [style.background-image]="'linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url(' + slide + ')'"
+      >
+        <div class="banner-overlay">
+          <h1><span>OUR</span> GALLERY</h1>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
