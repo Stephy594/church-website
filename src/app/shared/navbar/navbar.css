@@ -142,3 +142,17 @@ body {
     width: 100%;
   }
 }
+
+@media (max-width: 991px) {
+
+  .navbar-nav {
+    margin-left: auto;
+    align-items: flex-end !important;
+  }
+
+  .nav-link {
+    width: auto;
+    text-align: right;
+  }
+
+}

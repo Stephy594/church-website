@@ -97,6 +97,8 @@
   box-shadow: 0 15px 40px rgba(0,0,0,0.08);
   transition: 0.4s ease;
   border: 1px solid rgba(255,255,255,0.5);
+    max-width: 420px;
+  padding: 30px;
 }
 
 .timeline-card:hover {
@@ -121,10 +123,10 @@
   color: #111827;
 }
 
-.timeline-card p {
-  font-size: 18px;
-  line-height: 1.9;
+.timeline-card p { 
   color: #475467;
+   line-height: 1.8;
+  font-size: 15px;
 }
 
 /* VISION MISSION */
