@@ -297,22 +297,46 @@ section{
   overflow: hidden;
 }
 
-.custom-tabs {
+ .custom-tabs {
   border: none;
+  gap: 12px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.custom-tabs .nav-item {
+  flex: unset;
 }
 
 .custom-tabs .nav-link {
-  width: 100%;
-  padding: 22px 45px;
-  border: 1px solid #b91c1c;
-  color: #111827;
-  font-weight: 800;
-  border-radius: 0;
+  width: auto;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 50px;
+  background: #f8fafc;
+  color: #1e293b;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.custom-tabs .nav-link:hover {
+  transform: translateY(-3px);
+  background: #f1f5f9;
 }
 
 .custom-tabs .nav-link.active {
-  background: #991b1b;
+  background: linear-gradient(135deg, #991b1b, #dc2626);
   color: white;
+  box-shadow: 0 8px 20px rgba(153,27,27,0.25);
+}
+
+.tab-content {
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+  margin-top: 20px;
 }
 
 .tab-content {
@@ -526,12 +550,15 @@ section{
   height: 90vh;
   background-size: cover;
   background-position: center;
-}
+} 
 
 .slide-one {
   background-image:
-    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-    url('/images/Gallery/IMG_6735.JPG.jpeg');
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.60)),
+    url("/images/Gallery/Slide1.jpeg");
+
+  background-size: cover;
+  background-position: center;
 }
 
 .slide-two {
