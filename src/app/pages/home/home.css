@@ -2236,3 +2236,571 @@ html{
     animation: none;
   }
 }
+/* =========================================================
+   BIBLE VERSE SECTION
+========================================================= */
+
+.verse-section {
+  position: relative;
+  isolation: isolate;
+  min-height: 430px;
+  padding: 78px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+  background:
+    radial-gradient(
+      circle at 50% -20%,
+      rgba(241, 188, 62, 0.2),
+      transparent 48%
+    ),
+    linear-gradient(
+      135deg,
+      #1d0d0d 0%,
+      #341a19 48%,
+      #211010 100%
+    );
+}
+
+/* Moving light sweep */
+
+.verse-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.45;
+  background: linear-gradient(
+    115deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.035) 42%,
+    rgba(241, 188, 62, 0.08) 50%,
+    rgba(255, 255, 255, 0.025) 58%,
+    transparent 82%
+  );
+  background-size: 250% 100%;
+  animation: verseLightSweep 10s linear infinite;
+}
+
+/* Animated gold line at bottom */
+
+.verse-section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #dcae35,
+    #fff0a2,
+    #dcae35,
+    transparent
+  );
+  box-shadow:
+    0 0 14px rgba(226, 177, 48, 0.65),
+    0 0 30px rgba(226, 177, 48, 0.3);
+  animation: verseBottomLine 1.5s ease forwards 0.4s;
+}
+
+.verse-container {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 950px);
+  margin: 0 auto;
+}
+
+/* Theme label from admin portal */
+
+.verse-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 17px;
+  color: #e8b93f;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-14px);
+  animation: verseThemeReveal 0.8s ease forwards 0.1s;
+}
+
+.verse-theme::before,
+.verse-theme::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  margin: 0 11px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 185, 63, 0.9)
+  );
+}
+
+.verse-theme::after {
+  background: linear-gradient(
+    90deg,
+    rgba(232, 185, 63, 0.9),
+    transparent
+  );
+}
+
+/* Section title */
+
+.verse-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  opacity: 0;
+  transform: translateY(-18px);
+  animation: verseTitleReveal 0.9s ease forwards 0.3s;
+}
+
+.verse-title-row h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.75rem, 3vw, 2.3rem);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.45);
+}
+
+.verse-title-line {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 185, 63, 0.95)
+  );
+  animation: verseTitleLineGrow 1s ease forwards 1s;
+}
+
+.verse-title-line:last-child {
+  background: linear-gradient(
+    90deg,
+    rgba(232, 185, 63, 0.95),
+    transparent
+  );
+}
+
+/* Large quote symbol */
+
+.verse-quote-icon {
+  height: 40px;
+  margin-top: 17px;
+  color: #e5b43a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 5.3rem;
+  line-height: 0.9;
+  opacity: 0;
+  transform: scale(0.45) rotate(-10deg);
+  text-shadow:
+    0 0 18px rgba(229, 180, 58, 0.38),
+    0 0 42px rgba(229, 180, 58, 0.15);
+  animation: verseQuoteReveal 0.9s
+    cubic-bezier(0.22, 1, 0.36, 1) forwards 0.6s;
+}
+
+/* Dynamic verse text */
+
+.verse-text {
+  max-width: 860px;
+  margin: 18px auto 27px;
+  color: rgba(255, 255, 255, 0.97);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  letter-spacing: 0.008em;
+  text-wrap: balance;
+  text-shadow: 0 4px 17px rgba(0, 0, 0, 0.46);
+  opacity: 0;
+  filter: blur(7px);
+  transform: translateY(26px);
+  animation: verseTextReveal 1.1s ease forwards 0.75s;
+}
+
+/* Dynamic reference */
+
+.verse-reference-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(17px);
+  animation: verseReferenceReveal 0.9s ease forwards 1.2s;
+}
+
+.verse-reference-wrapper h4 {
+  margin: 0;
+  padding: 5px 0;
+  color: #ffffff;
+  font-size: clamp(1.08rem, 2vw, 1.4rem);
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+  background: linear-gradient(
+    90deg,
+    #ffffff 20%,
+    #f2c64f 45%,
+    #fff8d4 55%,
+    #ffffff 75%
+  );
+  background-size: 230% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: verseReferenceShine 4.8s linear infinite 2s;
+}
+
+.verse-reference-line {
+  width: 38px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(232, 185, 63, 0.9)
+  );
+}
+
+.verse-reference-line:last-child {
+  background: linear-gradient(
+    90deg,
+    rgba(232, 185, 63, 0.9),
+    transparent
+  );
+}
+
+/* Background glowing orbs */
+
+.verse-glow {
+  position: absolute;
+  z-index: -1;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(20px);
+  opacity: 0.15;
+  background: radial-gradient(
+    circle,
+    rgba(234, 184, 55, 0.85),
+    transparent 68%
+  );
+  animation: verseGlowFloat 9s ease-in-out infinite alternate;
+}
+
+.verse-glow-left {
+  left: -120px;
+  top: -120px;
+}
+
+.verse-glow-right {
+  right: -140px;
+  bottom: -150px;
+  animation-delay: -4s;
+}
+
+/* Floating gold particles */
+
+.verse-particle {
+  position: absolute;
+  z-index: 1;
+  bottom: 8%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  background: #f0c24e;
+  box-shadow:
+    0 0 8px rgba(240, 194, 78, 0.9),
+    0 0 18px rgba(240, 194, 78, 0.5);
+  animation: verseParticleRise 8s ease-in-out infinite;
+}
+
+.particle-1 {
+  left: 11%;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  left: 31%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 2.2s;
+}
+
+.particle-3 {
+  right: 24%;
+  width: 4px;
+  height: 4px;
+  animation-delay: 4.1s;
+}
+
+.particle-4 {
+  right: 9%;
+  width: 3px;
+  height: 3px;
+  animation-delay: 5.7s;
+}
+
+/* =========================================================
+   VERSE ANIMATIONS
+========================================================= */
+
+@keyframes verseLightSweep {
+  from {
+    background-position: 220% center;
+  }
+
+  to {
+    background-position: -120% center;
+  }
+}
+
+@keyframes verseBottomLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: min(74%, 780px);
+    opacity: 1;
+  }
+}
+
+@keyframes verseThemeReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes verseTitleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes verseTitleLineGrow {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: clamp(35px, 7vw, 85px);
+    opacity: 1;
+  }
+}
+
+@keyframes verseQuoteReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.45) rotate(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes verseTextReveal {
+  from {
+    opacity: 0;
+    filter: blur(7px);
+    transform: translateY(26px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes verseReferenceReveal {
+  from {
+    opacity: 0;
+    transform: translateY(17px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes verseReferenceShine {
+  from {
+    background-position: 190% center;
+  }
+
+  to {
+    background-position: -90% center;
+  }
+}
+
+@keyframes verseGlowFloat {
+  from {
+    transform: translate3d(-20px, -10px, 0) scale(0.9);
+  }
+
+  to {
+    transform: translate3d(35px, 28px, 0) scale(1.12);
+  }
+}
+
+@keyframes verseParticleRise {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) translateX(0) scale(0.4);
+  }
+
+  20% {
+    opacity: 0.75;
+  }
+
+  65% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-250px) translateX(28px) scale(1.15);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE VERSE SECTION
+========================================================= */
+
+@media (max-width: 768px) {
+  .verse-section {
+    min-height: 450px;
+    padding: 68px 21px;
+  }
+
+  .verse-title-row {
+    gap: 10px;
+  }
+
+  .verse-title-row h2 {
+    font-size: 1.65rem;
+  }
+
+  .verse-title-line {
+    display: none;
+  }
+
+  .verse-theme {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+
+  .verse-theme::before,
+  .verse-theme::after {
+    width: 18px;
+    margin: 0 8px;
+  }
+
+  .verse-quote-icon {
+    height: 32px;
+    font-size: 4.4rem;
+  }
+
+  .verse-text {
+    margin-top: 15px;
+    margin-bottom: 26px;
+    font-size: 1.08rem;
+    line-height: 1.72;
+  }
+
+  .verse-reference-wrapper h4 {
+    font-size: 1.12rem;
+  }
+
+  .verse-reference-line {
+    width: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .verse-section {
+    min-height: 475px;
+    padding: 58px 17px;
+  }
+
+  .verse-title-row h2 {
+    font-size: 1.45rem;
+  }
+
+  .verse-text {
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .verse-particle {
+    display: none;
+  }
+
+  .verse-glow {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Respect reduced-motion accessibility preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .verse-section *,
+  .verse-section::before,
+  .verse-section::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .verse-theme,
+  .verse-title-row,
+  .verse-quote-icon,
+  .verse-text,
+  .verse-reference-wrapper {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .verse-section::after {
+    width: min(74%, 780px);
+  }
+}

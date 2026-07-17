@@ -18,8 +18,7 @@
     <div class="carousel-item active hero-slide slide-one">
       <div class="hero-overlay">
         <div class="container text-center text-white">
-          <h1>EL-SHADDAI INTERNATIONAL<br>PENTECOSTAL CHURCH BERLIN</h1>
-          <p>Welcome to our church family in Berlin</p>
+          <h1>EL-SHADDAI INTERNATIONAL<br>PENTECOSTAL CHURCH BERLIN</h1> 
           <h5>Worship • Faith • Prayer • Community</h5>
             <div class="hero-buttons">
 
@@ -436,11 +435,47 @@
 </section>
 
 <section class="verse-section" *ngIf="bibleVerse.published">
-  <div class="container">
-    <span class="verse-theme" *ngIf="bibleVerse.theme">{{ bibleVerse.theme }}</span>
-    <h2>Bible Verse of the Week</h2>
-    <p class="verse-text">“{{ bibleVerse.verse }}”</p>
-    <h4>{{ bibleVerse.reference }}</h4>
+  <div class="verse-glow verse-glow-left"></div>
+  <div class="verse-glow verse-glow-right"></div>
+
+  <span class="verse-particle particle-1"></span>
+  <span class="verse-particle particle-2"></span>
+  <span class="verse-particle particle-3"></span>
+  <span class="verse-particle particle-4"></span>
+
+  <div class="container verse-container">
+    <span
+      class="verse-theme"
+      *ngIf="bibleVerse.theme"
+    >
+      {{ bibleVerse.theme }}
+    </span>
+
+    <div class="verse-title-row">
+      <span class="verse-title-line"></span>
+
+      <h2>Bible Verse of the Week</h2>
+
+      <span class="verse-title-line"></span>
+    </div>
+
+    <div class="verse-quote-icon" aria-hidden="true">
+      “
+    </div>
+
+    <p class="verse-text">
+      {{ bibleVerse.verse }}
+    </p>
+
+    <div class="verse-reference-wrapper">
+      <span class="verse-reference-line"></span>
+
+      <h4>
+        {{ bibleVerse.reference }}
+      </h4>
+
+      <span class="verse-reference-line"></span>
+    </div>
   </div>
 </section>
 <section class="testimony-section">
