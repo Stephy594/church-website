@@ -11,7 +11,8 @@ import {
   query,
   serverTimestamp,
   updateDoc,
-  where
+  where,
+  limit
 } from 'firebase/firestore';
 
 export interface Testimony {
@@ -39,24 +40,21 @@ export class TestimonyService {
   }
 
  async getApprovedTestimonies(): Promise<Testimony[]> {
+
   const approvedQuery = query(
     this.testimonyRef,
-    where('approved', '==', true)
+    where('approved', '==', true),
+    orderBy('createdAt', 'desc'),
+    limit(10)
   );
 
   const snapshot = await getDocs(approvedQuery);
 
-  const testimonies = snapshot.docs.map(document => ({
+  return snapshot.docs.map(document => ({
     id: document.id,
     ...document.data()
   } as Testimony));
 
-  return testimonies.sort((a: any, b: any) => {
-    const firstDate = a.createdAt?.seconds ?? 0;
-    const secondDate = b.createdAt?.seconds ?? 0;
-
-    return secondDate - firstDate;
-  });
 }
 
  async getPendingTestimonies(): Promise<Testimony[]> {

@@ -1,0 +1,15 @@
+<div
+  class="global-loader"
+  *ngIf="loaderService.isLoading()">
+
+  <div class="loader-backdrop"></div>
+
+  <div class="loader-content">
+    <div class="loader-ring">
+      <span></span>
+    </div>
+
+    <h2>El-Shaddai Church</h2>
+    <p>Please wait...</p>
+  </div>
+</div>

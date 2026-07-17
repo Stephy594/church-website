@@ -1,48 +1,92 @@
 <section class="admin-login-page">
+
+  <div class="bg-circle bg1"></div>
+  <div class="bg-circle bg2"></div>
+  <div class="bg-circle bg3"></div>
+
   <div class="login-card">
 
-    <h1>Admin Login</h1>
+   <div class="login-logo">
+    <img
+      src="images/Logo.jpg"
+      alt="El-Shaddai Church Logo">
+</div>
 
-    <p>El-Shaddai Church Website Management</p>
+    <h1>Admin Portal</h1>
+
+    <p>
+      El-Shaddai Church Website Management
+    </p>
 
     <form (ngSubmit)="login()">
 
-      <label for="email">Email</label>
+      <label>Email</label>
 
-      <input
-        id="email"
-        type="email"
-        name="email"
-        [(ngModel)]="email"
-        placeholder="Admin email"
-        autocomplete="email"
-        required
-      >
+      <div class="input-group">
 
-      <label for="password">Password</label>
+        <span>📧</span>
 
-      <input
-        id="password"
-        type="password"
-        name="password"
-        [(ngModel)]="password"
-        placeholder="Password"
-        autocomplete="current-password"
-        required
-      >
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="Admin Email"
+          autocomplete="email"
+          required>
 
-      <p class="error-message" *ngIf="errorMessage">
-        {{ errorMessage }}
+      </div>
+
+
+      <label>Password</label>
+
+      <div class="input-group">
+
+        <span>🔒</span>
+
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Password"
+          autocomplete="current-password"
+          required>
+
+        <button
+          type="button"
+          class="eye-btn"
+          (click)="showPassword=!showPassword">
+
+          {{showPassword ? '🙈' : '👁'}}
+
+        </button>
+
+      </div>
+
+      <p
+        class="error-message"
+        *ngIf="errorMessage">
+
+        {{errorMessage}}
+
       </p>
 
       <button
+        class="login-btn"
         type="submit"
-        [disabled]="isLoading"
-      >
-        {{ isLoading ? 'Signing in...' : 'Login' }}
+        [disabled]="isLoading">
+
+        {{isLoading ? 'Signing In...' : 'Login'}}
+
       </button>
 
     </form>
 
+    <div class="secure">
+
+        🔐 Secure Admin Access
+
+    </div>
+
   </div>
+
 </section>

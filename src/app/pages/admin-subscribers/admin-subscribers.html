@@ -1,1 +1,26 @@
-<section class="module-page"><header class="module-hero"><p class="eyebrow">Communication</p><h1>Newsletter Subscribers</h1><p>Review your mailing list and export it when required.</p></header><section class="panel" *ngIf="items$|async as items"><div class="toolbar"><h2>{{items.length}} subscribers</h2><button class="btn btn-gold" (click)="export(items)" [disabled]="!items.length">Export CSV</button></div><div class="grid"><div class="empty" *ngIf="!items.length">No subscribers yet.</div><article class="item" *ngFor="let x of items"><div><h3>{{x.name||'Subscriber'}}</h3><p>{{x.email}}</p></div><div class="actions"><a class="btn btn-soft" [href]="'mailto:'+x.email">Email</a><button class="btn btn-danger" (click)="remove(x)">Remove</button></div></article></div></section></section>
+<section class="module-page">
+    <header class="module-hero">
+        <p class="eyebrow">Communication</p>
+        <h1>Newsletter Subscribers</h1>
+        <p>Review your mailing list and export it when required.</p>
+    </header>
+    <section class="panel" *ngIf="items$|async as items">
+        <div class="toolbar">
+            <h2>{{items.length}} subscribers</h2><button class="btn btn-gold" (click)="export(items)"
+                [disabled]="!items.length">Export CSV</button>
+        </div>
+        <div class="grid">
+            <div class="empty" *ngIf="!items.length">No subscribers yet.</div>
+            <article class="item" *ngFor="let x of items">
+                <div>
+                    <h3>{{x.name||'Subscriber'}}</h3>
+                    <p>{{x.email}}</p>
+                </div>
+                <div class="actions">
+                    <!-- <a class="btn btn-soft" [href]="'mailto:'+x.email">Email</a> -->
+                    <button
+                        class="btn btn-danger" (click)="remove(x)">Remove</button></div>
+            </article>
+        </div>
+    </section>
+</section>

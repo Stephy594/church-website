@@ -60,10 +60,15 @@ export class AdminDashboard implements OnInit, OnDestroy {
     private firestore: Firestore
   ) {}
 
-  async ngOnInit(): Promise<void> {
-    await this.loadAllTestimonies();
-    this.loadPrayerRequestSummary();
-  }
+ async ngOnInit(): Promise<void> {
+
+  // Show prayer statistics immediately
+  this.loadPrayerRequestSummary();
+
+  // Load testimonies in the background
+  this.loadAllTestimonies();
+
+}
 
   ngOnDestroy(): void {
     this.prayerRequestsSubscription?.unsubscribe();

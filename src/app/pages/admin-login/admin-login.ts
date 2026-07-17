@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './admin-login.css'
 })
 export class AdminLogin {
-
+showPassword = false;
   email = '';
   password = '';
   errorMessage = '';

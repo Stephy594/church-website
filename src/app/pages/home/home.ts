@@ -104,11 +104,14 @@ export class Home implements OnInit, OnDestroy {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    await Promise.all([
-      this.loadApprovedTestimonies(),
-      this.loadBibleVerse(),
-      this.loadAnnouncements()
-    ]);
+    // await Promise.all([
+    //   this.loadApprovedTestimonies(),
+    //   this.loadBibleVerse(),
+    //   this.loadAnnouncements()
+    // ]);
+    this.loadBibleVerse();
+this.loadAnnouncements();
+this.loadApprovedTestimonies(); 
 
     this.isLoadingSiteContent = false;
     this.cdr.detectChanges();

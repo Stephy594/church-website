@@ -2804,3 +2804,28 @@ html{
     width: min(74%, 780px);
   }
 }
+
+.prayer-section {
+  position: relative;
+  min-height: 620px;
+  padding: 90px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  text-align: center;
+  color: #ffffff;
+
+  background-image:
+    linear-gradient(
+      rgba(55, 22, 7, 0.48),
+      rgba(55, 22, 7, 0.58)
+    ),
+    url('/assets/your-prayer-image.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
