@@ -1,0 +1,93 @@
+<section class="module-page">
+  <header class="module-hero">
+    <p class="eyebrow">Media library</p>
+    <h1>Gallery Manager</h1>
+    <p>Upload church photos directly and publish them on the public Gallery page.</p>
+  </header>
+
+  <section class="panel">
+    <div class="toolbar">
+      <div>
+        <h2>Upload a gallery image</h2>
+        <p class="helper-text">JPG, PNG, WEBP or GIF. Maximum file size: 8 MB.</p>
+      </div>
+    </div>
+
+    <p class="notice" *ngIf="message">{{ message }}</p>
+    <p class="notice error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+    <form class="form-grid" (ngSubmit)="uploadImage(fileInput)">
+      <label class="label full upload-zone">
+        <span>Image file</span>
+        <input
+          #fileInput
+          class="file-field"
+          type="file"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+          required>
+        <span class="upload-hint">
+          {{ selectedFile ? selectedFile.name : 'Click to choose an image from your computer' }}
+        </span>
+      </label>
+
+      <div class="upload-preview full" *ngIf="previewUrl">
+        <img [src]="previewUrl" alt="Selected image preview">
+      </div>
+
+      <label class="label">
+        Title
+        <input class="field" name="title" [(ngModel)]="form.title">
+      </label>
+
+      <label class="label">
+        Category
+        <select class="field" name="category" [(ngModel)]="form.category">
+          <option>WORSHIP</option>
+          <option>SUNDAY SCHOOL</option>
+          <option>YOUTH</option>
+          <option>LADIES MEETING</option>
+          <option>EVENTS</option>
+        </select>
+      </label>
+
+      <label class="label publish-check">
+        <span>
+          <input type="checkbox" name="published" [(ngModel)]="form.published">
+          Publish immediately on the website
+        </span>
+      </label>
+
+      <div class="form-action">
+        <button class="btn btn-primary" type="submit" [disabled]="busy || !selectedFile">
+          {{ busy ? (uploadProgressText || 'Uploading…') : 'Upload image' }}
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel">
+    <div class="toolbar"><h2>Managed images</h2></div>
+
+    <div class="gallery-admin-grid" *ngIf="items$ | async as items">
+      <div class="empty" *ngIf="!items.length">No managed gallery images yet.</div>
+
+      <article class="gallery-admin-card" *ngFor="let item of items">
+        <img [src]="item.imageUrl" [alt]="item.title || 'Church gallery image'">
+        <div class="gallery-admin-body">
+          <h3>{{ item.title || 'Untitled image' }}</h3>
+          <div class="meta">
+            <span class="badge">{{ item.category }}</span>
+            <span class="badge" [class.gold]="!item.published">
+              {{ item.published ? 'Published' : 'Draft' }}
+            </span>
+          </div>
+          <div class="actions">
+            <a class="btn btn-soft" [href]="item.imageUrl" target="_blank" rel="noopener">Preview</a>
+            <button class="btn btn-danger" type="button" (click)="remove(item)">Delete</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</section>

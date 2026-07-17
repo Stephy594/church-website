@@ -1,0 +1,32 @@
+<section class="module-page">
+    <header class="module-hero"> 
+        <h1>Testimony Management</h1>
+        <p>Browse and manage testimonies already visible on the public website. New approvals remain on the dashboard.
+        </p>
+    </header>
+    <div class="stats">
+        <article class="stat"><span>Published testimonies</span><strong>{{items.length}}</strong></article>
+        <article class="stat"><span>Search results</span><strong>{{filtered.length}}</strong></article>
+    </div>
+    <section class="panel">
+        <div class="toolbar">
+            <h2>Published testimonies</h2><input class="search" [(ngModel)]="search"
+                placeholder="Search by name or testimony">
+        </div>
+        <p class="notice error" *ngIf="error">{{error}}</p>
+        <div class="empty" *ngIf="loading">Loading testimonies…</div>
+        <div class="empty" *ngIf="!loading && !filtered.length">No published testimonies found.</div>
+        <div class="grid">
+            <article class="item" *ngFor="let item of filtered">
+                <div>
+                    <h3>{{item.name}}</h3>
+                    <p>“{{item.message}}”</p>
+                    <div class="meta"><span class="badge">Published</span><span>{{formatDate(item.createdAt)}}</span>
+                    </div>
+                </div>
+                <div class="actions"><button class="btn btn-danger" [disabled]="busyId===item.id"
+                        (click)="remove(item)">{{busyId===item.id?'Deleting…':'Delete'}}</button></div>
+            </article>
+        </div>
+    </section>
+</section>

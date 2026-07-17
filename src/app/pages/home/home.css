@@ -564,13 +564,13 @@ section{
 .slide-two {
   background-image:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-    url('/images/Gallery/IMG_8475.JPG.jpeg');
+    url('/images/Gallery/IMG_8479.JPG.jpeg');
 }
 
 .slide-three {
   background-image:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-    url('/images/Gallery/IMG_7021.PNG');
+    url('/images/Gallery/IMG_7022.PNG');
 }
 
 .hero-overlay {
@@ -649,19 +649,19 @@ section{
 .slide-one {
   background-image:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-    url('/images/Gallery/IMG_6752.JPG.jpeg');
+    url('/images/Gallery/sd.jpg');
 }
 
 .slide-two {
   background-image:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-    url('/images/Gallery/IMG_8496.JPG.jpeg');
+    url('/images/Gallery/Worship.jpg');
 }
 
 .slide-three {
   background-image:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)),
-    url('/images/Gallery/IMG_7021.PNG');
+    url('/images/Gallery/IMG_7022.PNG');
 }
 
 .hero-overlay {
@@ -792,4 +792,1447 @@ html{
   font-weight: 600;
   font-style: italic;
   color: #1e293b;
+}
+
+.testimony-slider {
+  overflow: hidden;
+  margin-top: 35px;
+  width: 100%;
+}
+
+.testimony-track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  animation: slideLeft 25s linear infinite;
+}
+
+.testimony-card {
+  min-width: 320px;
+  max-width: 320px;
+  background: #f8f4ef;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.testimony-card p {
+  font-style: italic;
+}
+
+.testimony-slider:hover .testimony-track {
+  animation-play-state: paused;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimony-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+}
+.prayer-section,
+.testimony-section,
+.verse-section {
+  padding: 70px 0;
+  text-align: center;
+}
+
+.prayer-section {
+  background: #f8f4ef;
+}
+
+.prayer-form {
+  max-width: 650px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prayer-form input,
+.prayer-form textarea {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.prayer-form button {
+  background: #6b2c2c;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.testimony-section {
+  background: #fff;
+}
+
+.testimony-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 35px;
+}
+
+.testimony-card {
+  background: #f8f4ef;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.testimony-card p {
+  font-style: italic;
+}
+
+.verse-section {
+  background: #2b1b1b;
+  color: white;
+}
+
+.verse-text {
+  max-width: 800px;
+  margin: 25px auto;
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .testimony-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .verse-text {
+    font-size: 20px;
+  }
+}
+
+.google-review-btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 13px 28px;
+  background: #6b2c2c;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.google-review-btn:hover {
+  background: #4f1f1f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* TESTIMONIES SECTION */
+
+.testimony-section {
+  padding: 70px 0;
+  background: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.testimony-section h2 {
+  color: #2b1b1b;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.testimony-section p {
+  color: #666;
+}
+
+.testimony-slider {
+  overflow: hidden;
+  margin-top: 35px;
+  width: 100%;
+}
+
+.testimony-track {
+  display: flex;
+  gap: 25px;
+  width: max-content;
+  animation: slideLeft 25s linear infinite;
+}
+
+.testimony-slider:hover .testimony-track {
+  animation-play-state: paused;
+}
+
+.testimony-card {
+  min-width: 320px;
+  max-width: 320px;
+  background: #f8f4ef;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.testimony-card p {
+  color: #333;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.testimony-card h5 {
+  margin-top: 15px;
+  color: #6b2c2c;
+  font-weight: 700;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* GOOGLE REVIEW BUTTON */
+
+.google-review-btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 13px 28px;
+  background: #6b2c2c;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.google-review-btn:hover {
+  background: #4f1f1f;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* SHARE TESTIMONY FORM */
+
+.share-testimony-section {
+  padding: 70px 0;
+  background: #f8f4ef;
+  text-align: center;
+}
+
+.share-testimony-section form {
+  max-width: 650px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.share-testimony-section input,
+.share-testimony-section textarea {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.share-testimony-section button {
+  background: #6b2c2c;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.share-testimony-section button:hover {
+  background: #4f1f1f;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .testimony-section,
+  .share-testimony-section {
+    padding: 50px 0;
+  }
+
+  .testimony-card {
+    min-width: 280px;
+    max-width: 280px;
+  }
+
+  .testimony-track {
+    animation-duration: 30s;
+  }
+}
+
+.share-btn{
+
+    background:#74342f;
+    color:#fff;
+    border:none;
+    padding:14px 28px;
+    border-radius:40px;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.share-btn:hover{
+
+    background:#5b2622;
+    transform:translateY(-2px);
+}
+
+.modal-overlay{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.modal-content{
+
+    width:90%;
+    max-width:550px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:35px;
+
+    position:relative;
+
+    animation:popup .3s ease;
+}
+
+.modal-content input,
+.modal-content textarea{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:15px;
+}
+
+.submit-btn{
+
+    margin-top:20px;
+
+    width:100%;
+
+    background:#74342f;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+.close-btn{
+
+    position:absolute;
+
+    right:18px;
+
+    top:10px;
+
+    font-size:34px;
+
+    cursor:pointer;
+}
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+        transform:scale(.8);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:scale(1);
+
+    }
+
+}
+/* =========================================
+   PRAYER REQUEST CTA
+   ========================================= */
+
+.prayer-cta {
+  min-height: 460px;
+  padding: 85px 24px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+  background: #173b35;
+}
+
+/* Animated background image */
+.prayer-cta::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  z-index: -2;
+
+  background-image: url('/images/Gallery/Prayer.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  animation: prayerBackgroundZoom 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Dark overlay for readable text */
+.prayer-cta-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(8, 42, 37, 0.91),
+      rgba(18, 64, 55, 0.76),
+      rgba(31, 48, 44, 0.86)
+    );
+}
+
+/* Soft golden light effect */
+.prayer-cta-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(229, 182, 66, 0.2),
+      transparent 52%
+    );
+
+  animation: prayerGlow 5s ease-in-out infinite alternate;
+}
+
+/* Content */
+.prayer-cta-content {
+  width: min(780px, 100%);
+  position: relative;
+  z-index: 2;
+
+  animation: prayerContentEnter 1s ease both;
+}
+
+/* Small heading */
+.prayer-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 16px;
+
+  color: #f2c65b;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  animation: prayerLabelFloat 3s ease-in-out infinite;
+}
+
+.prayer-label::before,
+.prayer-label::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: rgba(242, 198, 91, 0.75);
+}
+
+/* Main title */
+.prayer-cta h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1.12;
+  text-shadow: 0 5px 25px rgba(0, 0, 0, 0.28);
+}
+
+/* Description */
+.prayer-cta p {
+  max-width: 680px;
+  margin: 22px auto 32px;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 17px;
+  line-height: 1.8;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+}
+
+/* Prayer request button */
+.prayer-cta-button {
+  min-height: 54px;
+  padding: 0 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  border: 2px solid #e1b547;
+  border-radius: 10px;
+
+  background: #e1b547;
+  color: #123a32;
+
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.2),
+    0 0 0 rgba(225, 181, 71, 0);
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.prayer-cta-button:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.28),
+    0 0 25px rgba(225, 181, 71, 0.3);
+}
+
+.prayer-cta-button span {
+  display: inline-block;
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.prayer-cta-button:hover span {
+  transform: translateX(6px);
+}
+
+/* Slow cinematic image movement */
+@keyframes prayerBackgroundZoom {
+  0% {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: scale(1.14) translate3d(-12px, -6px, 0);
+  }
+}
+
+/* Subtle golden glow animation */
+@keyframes prayerGlow {
+  from {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+/* Content entrance */
+@keyframes prayerContentEnter {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Small label floating animation */
+@keyframes prayerLabelFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Tablet and mobile */
+@media (max-width: 768px) {
+  .prayer-cta {
+    min-height: 430px;
+    padding: 70px 22px;
+  }
+
+  .prayer-cta p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .prayer-cta {
+    min-height: 410px;
+    padding: 60px 18px;
+  }
+
+  .prayer-cta h2 {
+    font-size: 38px;
+  }
+
+  .prayer-label::before,
+  .prayer-label::after {
+    width: 18px;
+  }
+
+  .prayer-cta-button {
+    width: 100%;
+    max-width: 310px;
+  }
+}
+
+/* Respect accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  .prayer-cta::before,
+  .prayer-cta-overlay::after,
+  .prayer-cta-content,
+  .prayer-label {
+    animation: none;
+  }
+}
+
+.prayer-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214, 173, 75, 0.16),
+      transparent 60%
+    );
+}
+
+.prayer-cta-content {
+  width: min(760px, 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.prayer-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #d6ad4b;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.prayer-cta h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.15;
+}
+
+.prayer-cta p {
+  max-width: 650px;
+  margin: 20px auto 30px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.prayer-cta-button {
+  min-height: 52px;
+  padding: 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 2px solid #d6ad4b;
+  border-radius: 9px;
+  background: #d6ad4b;
+  color: #173b35;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.prayer-cta-button:hover {
+  transform: translateY(-3px);
+  background: transparent;
+  color: #ffffff;
+}
+
+.prayer-cta-button span {
+  font-size: 20px;
+  transition: transform 0.2s ease;
+}
+
+.prayer-cta-button:hover span {
+  transform: translateX(4px);
+}
+
+@media (max-width: 600px) {
+  .prayer-cta {
+    min-height: 380px;
+    padding: 60px 18px;
+  }
+
+  .prayer-cta-button {
+    width: 100%;
+    max-width: 310px;
+  }
+}
+
+.announcement-section{padding:75px 0;background:#f4f8f6}.announcement-heading{text-align:center;margin-bottom:30px}.announcement-heading span,.verse-theme{display:inline-block;margin-bottom:8px;color:#b3831c;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.announcement-heading h2{margin:0;color:#173f37}.announcement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.announcement-card{display:flex;gap:16px;padding:22px;border:1px solid #dde9e4;border-radius:17px;background:#fff;box-shadow:0 12px 30px rgba(25,67,58,.07);transition:transform .2s ease,box-shadow .2s ease}.announcement-card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(25,67,58,.11)}.announcement-icon{width:44px;height:44px;display:grid;place-items:center;flex:0 0 auto;border-radius:12px;background:#e5b642;color:#163e36}.announcement-card h3{margin:0 0 7px;color:#1b453c;font-size:18px}.announcement-card p{margin:0;color:#667974;line-height:1.65;white-space:pre-line}.verse-theme{padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.15);color:#f2ca67}
+
+
+
+/* =========================================================
+   MODERN TESTIMONY CAROUSEL
+   Only the testimony section is customised below.
+   ========================================================= */
+
+.testimony-section {
+  padding: 90px 0 85px;
+  background:
+    radial-gradient(circle at top left, rgba(214, 173, 75, 0.12), transparent 34%),
+    linear-gradient(180deg, #fffdf9 0%, #ffffff 100%);
+  text-align: center;
+  overflow: hidden;
+}
+
+.testimony-container {
+  position: relative;
+}
+
+.testimony-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #b3831c;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.testimony-section h2 {
+  margin: 0;
+  color: #2b1b1b;
+  font-size: clamp(34px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.testimony-intro {
+  max-width: 620px;
+  margin: 14px auto 0;
+  color: #6f625e !important;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.testimony-carousel {
+  position: relative;
+  margin-top: 42px;
+  padding: 0 58px;
+}
+
+.testimony-slider {
+  overflow: visible;
+  width: 100%;
+}
+
+.testimony-track {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 14px 4px 28px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  animation: none !important;
+}
+
+.testimony-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimony-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  min-width: 0;
+  max-width: none;
+  min-height: 370px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 34px 30px 30px;
+  border: 1px solid rgba(116, 52, 47, 0.09);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 14px 38px rgba(78, 45, 39, 0.09);
+  text-align: left;
+  scroll-snap-align: start;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.testimony-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 4px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(90deg, #74342f, #d6ad4b);
+  opacity: 0.55;
+  transition: opacity 0.35s ease;
+}
+
+.testimony-card:hover,
+.testimony-card-active {
+  transform: translateY(-8px);
+  border-color: rgba(214, 173, 75, 0.42);
+  box-shadow: 0 24px 55px rgba(78, 45, 39, 0.15);
+}
+
+.testimony-card:hover::before,
+.testimony-card-active::before {
+  opacity: 1;
+}
+
+.testimony-quote-mark {
+  height: 42px;
+  color: #d6ad4b;
+  font-family: Georgia, serif;
+  font-size: 76px;
+  line-height: 0.8;
+  opacity: 0.78;
+}
+
+.testimony-message {
+  flex: 1;
+  margin: 18px 0 28px;
+  color: #413936 !important;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.testimony-author {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding-top: 20px;
+  border-top: 1px solid #eee5df;
+}
+
+.testimony-avatar {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #74342f, #9f5149);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 8px 18px rgba(116, 52, 47, 0.2);
+}
+
+.testimony-author h5 {
+  margin: 0 0 3px;
+  color: #672e2a;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.testimony-author div span {
+  color: #9a8982;
+  font-size: 13px;
+}
+
+.testimony-arrow {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(116, 52, 47, 0.16);
+  border-radius: 50%;
+  background: #ffffff;
+  color: #74342f;
+  font-size: 21px;
+  box-shadow: 0 12px 28px rgba(78, 45, 39, 0.15);
+  transform: translateY(-50%);
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.testimony-arrow:hover {
+  background: #74342f;
+  color: #ffffff;
+  box-shadow: 0 16px 34px rgba(116, 52, 47, 0.26);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.testimony-arrow-left {
+  left: 0;
+}
+
+.testimony-arrow-right {
+  right: 0;
+}
+
+.testimony-dots {
+  min-height: 24px;
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.testimony-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #d7cbc6;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.testimony-dots button.active {
+  width: 28px;
+  background: #74342f;
+}
+
+.testimony-actions {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.testimony-actions .google-review-btn,
+.testimony-actions .share-btn {
+  min-height: 50px;
+  margin: 0;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.testimony-actions .google-review-btn {
+  border: 1px solid #74342f;
+  background: #74342f;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(116, 52, 47, 0.2);
+}
+
+.testimony-actions .share-btn {
+  border: 1px solid rgba(116, 52, 47, 0.24);
+  background: #ffffff;
+  color: #74342f;
+  box-shadow: 0 10px 24px rgba(78, 45, 39, 0.08);
+}
+
+.testimony-actions .google-review-btn:hover,
+.testimony-actions .share-btn:hover {
+  transform: translateY(-3px);
+}
+
+.testimony-actions .google-review-btn:hover {
+  background: #5b2622;
+  color: #ffffff;
+  box-shadow: 0 15px 30px rgba(116, 52, 47, 0.28);
+}
+
+.testimony-actions .share-btn:hover {
+  background: #fff9ef;
+  color: #5b2622;
+  box-shadow: 0 15px 30px rgba(78, 45, 39, 0.13);
+}
+
+@media (max-width: 991px) {
+  .testimony-card {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .testimony-section {
+    padding: 68px 0 64px;
+  }
+
+  .testimony-carousel {
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .testimony-track {
+    gap: 16px;
+    padding: 10px 18px 25px;
+    scroll-padding-left: 18px;
+  }
+
+  .testimony-card {
+    flex-basis: calc(100% - 42px);
+    min-width: calc(100% - 42px);
+    min-height: 340px;
+    padding: 30px 24px 26px;
+  }
+
+  .testimony-arrow {
+    width: 44px;
+    height: 44px;
+    top: auto;
+    bottom: -71px;
+  }
+
+  .testimony-arrow-left {
+    left: calc(50% - 61px);
+  }
+
+  .testimony-arrow-right {
+    right: calc(50% - 61px);
+  }
+
+  .testimony-dots {
+    margin-top: 73px;
+  }
+
+  .testimony-actions {
+    margin-top: 25px;
+    flex-direction: column;
+  }
+
+  .testimony-actions .google-review-btn,
+  .testimony-actions .share-btn {
+    width: min(100%, 310px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimony-track {
+    scroll-behavior: auto;
+  }
+
+  .testimony-card,
+  .testimony-arrow,
+  .testimony-dots button,
+  .testimony-actions .google-review-btn,
+  .testimony-actions .share-btn {
+    transition: none;
+  }
+}
+
+.testimony-card {
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimony-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.8;
+}
+.testimony-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.testimony-author {
+    margin-top: auto;
+}
+
+/* =========================================================
+   TESTIMONY CARD SIZE + LONG TEXT FIX
+   This final block intentionally overrides earlier testimony rules.
+   ========================================================= */
+
+.testimony-track {
+  align-items: stretch;
+}
+
+.testimony-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  width: calc((100% - 48px) / 3);
+  min-width: 0;
+  max-width: none;
+  height: 470px;
+  min-height: 470px;
+  max-height: 470px;
+  padding: 34px 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.testimony-quote-mark {
+  flex: 0 0 auto;
+}
+
+.testimony-message {
+  margin: 18px 0 14px;
+  display: -webkit-box;
+  flex: 0 0 auto;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 9;
+  line-clamp: 9;
+  text-overflow: ellipsis;
+  white-space: pre-line;
+  color: #3f302c !important;
+  font-size: 16.5px;
+  font-style: italic;
+  line-height: 1.75;
+}
+
+.testimony-read-more {
+  width: fit-content;
+  margin: 0 0 15px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+  color: #74342f;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.testimony-read-more span {
+  font-size: 17px;
+  transition: transform 0.25s ease;
+}
+
+.testimony-read-more:hover {
+  color: #b3831c;
+  transform: translateX(2px);
+}
+
+.testimony-read-more:hover span {
+  transform: translateX(4px);
+}
+
+.testimony-author {
+  width: 100%;
+  margin-top: auto;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  flex: 0 0 auto;
+  border-top: 1px solid rgba(116, 52, 47, 0.14);
+}
+
+.testimony-author-info {
+  min-width: 0;
+}
+
+.testimony-author-info h5 {
+  margin: 0 0 4px;
+  overflow: hidden;
+  color: #74342f;
+  font-size: 16px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.testimony-author-info > span {
+  color: #8c7770;
+  font-size: 12px;
+}
+
+/* Full testimony modal */
+
+.full-testimony-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  background: rgba(23, 14, 13, 0.76);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  animation: fullTestimonyFade 0.25s ease both;
+}
+
+.full-testimony-modal {
+  width: min(680px, 100%);
+  max-height: min(82vh, 760px);
+  padding: 38px 38px 32px;
+  position: relative;
+  overflow-y: auto;
+  border: 1px solid rgba(214, 173, 75, 0.35);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(214, 173, 75, 0.12),
+      transparent 32%
+    ),
+    #ffffff;
+  box-shadow: 0 28px 80px rgba(20, 12, 10, 0.34);
+  text-align: left;
+  animation: fullTestimonyOpen 0.3s ease both;
+}
+
+.full-testimony-close {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(116, 52, 47, 0.14);
+  border-radius: 50%;
+  background: #ffffff;
+  color: #74342f;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.full-testimony-close:hover {
+  transform: rotate(7deg) scale(1.05);
+  background: #74342f;
+  color: #ffffff;
+}
+
+.full-testimony-quote {
+  height: 50px;
+  color: #d6ad4b;
+  font-family: Georgia, serif;
+  font-size: 70px;
+  line-height: 1;
+}
+
+.full-testimony-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #b3831c;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.full-testimony-modal h2 {
+  margin: 0 52px 20px 0;
+  color: #672d29;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 800;
+}
+
+.full-testimony-modal p {
+  margin: 0;
+  color: #40302c;
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.full-testimony-done {
+  min-height: 46px;
+  margin-top: 28px;
+  padding: 0 25px;
+  border: 0;
+  border-radius: 999px;
+  background: #74342f;
+  color: #ffffff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.full-testimony-done:hover {
+  transform: translateY(-2px);
+  background: #592521;
+  box-shadow: 0 10px 24px rgba(116, 52, 47, 0.22);
+}
+
+@keyframes fullTestimonyFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fullTestimonyOpen {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 992px) {
+  .testimony-card {
+    flex-basis: calc((100% - 24px) / 2);
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 650px) {
+  .testimony-carousel {
+    padding: 0 42px;
+  }
+
+  .testimony-card {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 440px;
+    min-height: 440px;
+    max-height: 440px;
+    padding: 29px 24px 24px;
+  }
+
+  .testimony-message {
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+
+  .full-testimony-overlay {
+    padding: 14px;
+  }
+
+  .full-testimony-modal {
+    max-height: 88vh;
+    padding: 31px 23px 25px;
+    border-radius: 20px;
+  }
+
+  .full-testimony-modal p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .full-testimony-overlay,
+  .full-testimony-modal {
+    animation: none;
+  }
 }

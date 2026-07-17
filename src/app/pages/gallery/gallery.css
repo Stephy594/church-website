@@ -125,3 +125,7 @@
     font-size: 42px;
   }
 }
+
+
+.gallery-live-note{margin:12px auto 18px;color:#60756f}.gallery-live-note.error{color:#a63b3b}.gallery-figure{position:relative;margin:0;overflow:hidden;border-radius:12px;background:#edf4f1}.gallery-figure figcaption{position:absolute;left:12px;right:12px;bottom:12px;padding:9px 12px;border-radius:9px;background:rgba(10,38,32,.78);color:#fff;text-align:left;font-size:13px;backdrop-filter:blur(6px)}
+

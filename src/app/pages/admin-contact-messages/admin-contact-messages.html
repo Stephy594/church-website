@@ -1,0 +1,30 @@
+<section class="module-page">
+    <header class="module-hero">
+        <p class="eyebrow">Church inbox</p>
+        <h1>Contact Messages</h1>
+        <p>Review messages submitted through the public contact form.</p>
+    </header>
+    <section class="panel">
+        <div class="toolbar">
+            <h2>Inbox</h2>
+        </div>
+        <div class="grid" *ngIf="items$|async as items">
+            <div class="empty" *ngIf="!items.length">No contact messages yet.</div>
+            <article class="item" *ngFor="let x of items">
+                <div>
+                    <h3>{{x.subject||'Message from '+x.name}}</h3>
+                    <p>{{x.message}}</p>
+                    <div class="meta"><span class="badge"
+                            [class.gold]="x.status!=='read'">{{x.status==='read'?'Read':'New'}}</span><span>{{x.name}}</span><a
+                            [href]="'mailto:'+x.email">{{x.email}}</a><span>{{date(x.createdAt)}}</span></div>
+                </div>
+                <div class="actions"><button class="btn btn-soft" *ngIf="x.status!=='read'" (click)="read(x)">Mark
+                        read
+                    </button>
+                    <!-- <a class="btn btn-primary" [href]="'mailto:'+x.email">Reply</a> -->
+                    <button class="btn btn-danger" (click)="remove(x)">Delete</button>
+                    </div>
+            </article>
+        </div>
+    </section>
+</section>

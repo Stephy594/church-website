@@ -229,3 +229,6 @@
     right: 18px;
   }
 }
+
+.contact-form-card{padding:clamp(24px,4vw,48px);border-radius:20px;background:#fff}.contact-form-heading span{color:#ad7f1b;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.contact-form-heading h2{margin:8px 0;color:#173f37}.contact-form-heading p{color:#6d7f7a}.contact-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.contact-form-grid label{display:grid;gap:8px;color:#31554d;font-weight:700}.contact-form-grid .full{grid-column:1/-1}.contact-form-grid input,.contact-form-grid textarea{width:100%;padding:12px 14px;border:1px solid #d4e1dc;border-radius:11px;outline:none}.contact-form-grid input:focus,.contact-form-grid textarea:focus{border-color:#2e7c68;box-shadow:0 0 0 3px rgba(46,124,104,.12)}.contact-submit-btn{min-height:46px;padding:0 22px;border:0;border-radius:11px;background:#1c6b58;color:#fff;font-weight:800}.contact-submit-btn:disabled{opacity:.6}.contact-notice{padding:13px 15px;border-radius:11px}.contact-notice.success{background:#e8f5ed;color:#246348}.contact-notice.error{background:#fdecec;color:#a63b3b}@media(max-width:700px){.contact-form-grid{grid-template-columns:1fr}.contact-form-grid .full{grid-column:auto}}
+

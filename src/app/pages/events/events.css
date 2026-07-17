@@ -79,3 +79,6 @@
   padding: 30px;
   background: #ffffff;
 }
+
+.events-state{text-align:center;color:#647872}.events-state.error{color:#a63b3b}.managed-event-card{position:relative;border-top:4px solid #dcb142}.event-date-badge{display:inline-block;margin-bottom:14px;padding:6px 11px;border-radius:999px;background:#fff0c7;color:#7f5a0d;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}.event-date-badge.regular{background:#e5f1ed;color:#276653}.event-description{white-space:pre-line;line-height:1.7}
+

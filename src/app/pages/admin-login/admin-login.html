@@ -1,0 +1,48 @@
+<section class="admin-login-page">
+  <div class="login-card">
+
+    <h1>Admin Login</h1>
+
+    <p>El-Shaddai Church Website Management</p>
+
+    <form (ngSubmit)="login()">
+
+      <label for="email">Email</label>
+
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Admin email"
+        autocomplete="email"
+        required
+      >
+
+      <label for="password">Password</label>
+
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Password"
+        autocomplete="current-password"
+        required
+      >
+
+      <p class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </p>
+
+      <button
+        type="submit"
+        [disabled]="isLoading"
+      >
+        {{ isLoading ? 'Signing in...' : 'Login' }}
+      </button>
+
+    </form>
+
+  </div>
+</section>

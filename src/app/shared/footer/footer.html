@@ -1,82 +1,275 @@
 <footer class="spiritual-footer">
+  <div class="footer-background" aria-hidden="true"></div>
+  <div class="footer-shade" aria-hidden="true"></div>
+  <div class="footer-glow footer-glow-one" aria-hidden="true"></div>
+  <div class="footer-glow footer-glow-two" aria-hidden="true"></div>
 
   <div class="footer-overlay">
-
     <div class="container">
 
-      <div class="footer-top text-center">
-        <img src="images/Logo.jpg" class="footer-logo" alt="El-Shaddai Church Logo">
-        <h2>El-Shaddai International Pentecostal Church Berlin</h2>
+      <header class="footer-top">
+        <a
+          routerLink="/"
+          class="footer-logo-link"
+          aria-label="Go to home page">
+
+          <img
+            src="images/Logo.jpg"
+            class="footer-logo"
+            alt="El-Shaddai Church Logo">
+        </a>
+
+        <span class="footer-eyebrow">
+          A Place to Belong, Grow and Worship
+        </span>
+
+        <h2>{{ churchName }}</h2>
+
         <p>
-          Worship • Prayer • Fellowship • Spiritual Growth
+          Worship <span>•</span>
+          Prayer <span>•</span>
+          Fellowship <span>•</span>
+          Spiritual Growth
         </p>
-      </div>
+      </header>
 
-      <div class="row g-5 footer-content">
+      <div class="footer-content">
 
-        <div class="col-md-4">
-          <h3>About Church</h3>
+        <section class="footer-column footer-about">
+          <span class="footer-column-label">
+            Our Church
+          </span>
+
+          <h3>About Us</h3>
+
           <p>
-            A Malayalam Pentecostal church in Berlin, dedicated to worship,
-            prayer, the Word of God, and building a Christ-centered community.
+            A Malayalam Pentecostal church in Berlin,
+            dedicated to worship, prayer, the Word of God,
+            and building a loving, Christ-centered community.
           </p>
-        </div>
 
-        <div class="col-md-4">
+          <a
+            routerLink="/prayer-request"
+            class="footer-prayer-link">
+
+            <span class="footer-prayer-icon" aria-hidden="true">
+              🙏
+            </span>
+
+            <span>
+              Submit a Prayer Request
+            </span>
+
+            <span class="footer-link-arrow" aria-hidden="true">
+              →
+            </span>
+          </a>
+        </section>
+
+        <section class="footer-column">
+          <span class="footer-column-label">
+            Explore
+          </span>
+
           <h3>Quick Links</h3>
 
-          <div class="footer-links-grid">
-            <a routerLink="/">Home</a>
-            <a routerLink="/about">About</a>
-            <a routerLink="/services">Services</a>
-            <a routerLink="/events">Events</a>
-            <a routerLink="/gallery">Gallery</a>
-            <a routerLink="/contact">Contact</a>
-          </div>
-        </div>
+          <nav
+            class="footer-links-grid"
+            aria-label="Footer navigation">
 
-        <div class="col-md-4">
+            <a routerLink="/">
+              <span>Home</span>
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a routerLink="/about">
+              <span>About</span>
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a routerLink="/services">
+              <span>Services</span>
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a routerLink="/events">
+              <span>Events</span>
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a routerLink="/gallery">
+              <span>Gallery</span>
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a routerLink="/contact">
+              <span>Contact</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </nav>
+        </section>
+
+        <section class="footer-column footer-visit">
+          <span class="footer-column-label">
+            Join Us
+          </span>
+
           <h3>Visit Us</h3>
-          <p>
-            Rothenburgstraße 12a-13<br>
-            12165 Berlin<br>
-            Germany
-          </p>
 
-          <!-- <p class="phone">+49 17630779106</p> -->
+          <div class="footer-contact-row">
+            <span class="footer-contact-icon" aria-hidden="true">
+              <i class="bi bi-geo-alt-fill"></i>
+            </span>
+
+            <p>{{ address }}</p>
+          </div>
+
+          <div class="footer-contact-row">
+            <span class="footer-contact-icon" aria-hidden="true">
+              <i class="bi bi-calendar-heart-fill"></i>
+            </span>
+
+            <p>
+              Sunday Worship<br>
+              <strong>4 PM – 7 PM</strong>
+            </p>
+          </div>
 
           <div class="social-icons">
-            
-            <a href="https://www.instagram.com/elshaddaiberlin?igsh=aWp6OWxvcHkwZWMy" target="_blank">
+            <a
+              [href]="instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram">
+
               <i class="bi bi-instagram"></i>
             </a>
 
-            <a href="https://www.youtube.com/@ELSHADDAIGERMANYJOSHWASAGARAM" target="_blank">
+            <a
+              [href]="youtube"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube">
+
               <i class="bi bi-youtube"></i>
             </a>
 
-            <a href="https://wa.me/4917630779106" target="_blank">
+            <a
+              href="https://wa.me/4917630779106"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp">
+
               <i class="bi bi-whatsapp"></i>
             </a>
 
-            <a href="https://www.facebook.com/profile.php?id=61574976716313" target="_blank">
+            <a
+              [href]="facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook">
+
               <i class="bi bi-facebook"></i>
             </a>
           </div>
+        </section>
+
+      </div>
+
+      <section class="footer-newsletter">
+        <div class="newsletter-icon" aria-hidden="true">
+          <i class="bi bi-envelope-heart-fill"></i>
         </div>
 
-      </div>
+        <div class="newsletter-copy">
+          <span class="footer-column-label">
+            Stay Connected
+          </span>
 
-      <div class="footer-verse">
-        “For where two or three gather in my name, there am I with them.” — Matthew 18:20
-      </div>
+          <h3>Receive Church Updates</h3>
+
+          <p>
+            Subscribe for announcements, prayer meetings,
+            events and worship updates.
+          </p>
+        </div>
+
+        <form
+          class="newsletter-form"
+          (ngSubmit)="subscribe()">
+
+          <label
+            for="footerSubscriberEmail"
+            class="visually-hidden">
+            Email address
+          </label>
+
+          <input
+            id="footerSubscriberEmail"
+            type="email"
+            name="subscriberEmail"
+            [(ngModel)]="subscriberEmail"
+            placeholder="Enter your email address"
+            autocomplete="email"
+            required>
+
+          <button
+            type="submit"
+            [disabled]="isSubscribing">
+
+            <span>
+              {{ isSubscribing ? 'Joining…' : 'Subscribe' }}
+            </span>
+
+            <span aria-hidden="true">
+              →
+            </span>
+          </button>
+        </form>
+
+        <p
+          class="newsletter-message success"
+          role="status"
+          *ngIf="subscriptionMessage">
+          {{ subscriptionMessage }}
+        </p>
+
+        <p
+          class="newsletter-message error"
+          role="alert"
+          *ngIf="subscriptionError">
+          {{ subscriptionError }}
+        </p>
+      </section>
+
+      <blockquote class="footer-verse">
+        <span class="verse-mark" aria-hidden="true">“</span>
+
+        <p>
+          For where two or three gather in my name,
+          there am I with them.
+        </p>
+
+        <cite>Matthew 18:20</cite>
+      </blockquote>
 
       <div class="footer-bottom">
-        © 2026 El-Shaddai International Pentecostal Church Berlin. All Rights Reserved.
+        <p>
+          © 2026 El-Shaddai International Pentecostal Church Berlin.
+          All Rights Reserved.
+        </p>
+
+        <button
+          type="button"
+          class="back-to-top"
+          (click)="scrollToTop()"
+          aria-label="Scroll back to the top">
+
+          <span>Back to top</span>
+          <i class="bi bi-arrow-up"></i>
+        </button>
       </div>
 
     </div>
-
   </div>
-
 </footer>

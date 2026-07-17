@@ -1,34 +1,46 @@
-<section class="page-header text-center text-white" >
+<section class="page-header text-center text-white">
   <div class="container">
     <h1 data-aos="fade-down">Events</h1>
-    <p data-aos="fade-up"> Upcoming church programs and worship meetings</p>
+    <p data-aos="fade-up">Upcoming church programs and worship meetings</p>
   </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 events-public-page">
   <div class="container">
-    <div class="row g-4">
+    <p class="events-state" *ngIf="isLoading">Loading upcoming events…</p>
+    <p class="events-state error" *ngIf="errorMessage">{{ errorMessage }}</p>
 
+    <div class="row g-4" *ngIf="managedEvents.length > 0">
+      <div class="col-md-6" *ngFor="let event of managedEvents">
+        <article class="event-card managed-event-card shadow" data-aos="zoom-out">
+          <span class="event-date-badge">{{ formatDate(event.date) }}</span>
+          <h3>{{ event.title }}</h3>
+          <p *ngIf="event.time"><strong>Time:</strong> {{ event.time }}</p>
+          <p *ngIf="event.location"><strong>Location:</strong> {{ event.location }}</p>
+          <p class="event-description" *ngIf="event.description">{{ event.description }}</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1">
       <div class="col-md-6">
-        <div class="event-card shadow" data-aos="zoom-out"
->
+        <div class="event-card shadow" data-aos="zoom-out">
+          <span class="event-date-badge regular">Regular Service</span>
           <h3>Sunday Worship</h3>
           <p><strong>Date:</strong> {{ nextSundayDate }}</p>
           <p><strong>Time:</strong> 4 PM – 7 PM</p>
           <p><strong>Location:</strong> Rothenburgstraße 12a-13, 12165 Berlin</p>
-          <p><strong>Lead by:</strong> Pr. Joshwa Sagaram</p>
+          <p><strong>Led by:</strong> Pr. Joshwa Sagaram</p>
         </div>
       </div>
 
       <div class="col-md-6">
-        <div class="event-card shadow" data-aos="zoom-out"
->
+        <div class="event-card shadow" data-aos="zoom-out">
+          <span class="event-date-badge regular">Every Sunday</span>
           <h3>Weekly Worship</h3>
-          <p><strong>Every Sunday</strong></p>
           <p>Join us for prayer, worship, Bible message, and fellowship.</p>
         </div>
       </div>
-
     </div>
   </div>
 </section>

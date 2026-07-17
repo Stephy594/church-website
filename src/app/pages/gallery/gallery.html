@@ -1,47 +1,33 @@
 <section id="galleryHeroCarousel" class="carousel slide gallery-hero-carousel" data-bs-ride="carousel" data-bs-interval="3500">
   <div class="carousel-inner">
-
-    <div
-      class="carousel-item"
-      *ngFor="let slide of heroSlides; let i = index"
-      [class.active]="i === 0"
-    >
-      <div
-        class="gallery-hero-slide"
-        [style.background-image]="'linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url(' + slide + ')'"
-      >
-        <div class="banner-overlay">
-          <h1><span>OUR</span> GALLERY</h1>
-        </div>
+    <div class="carousel-item" *ngFor="let slide of heroSlides; let i = index" [class.active]="i === 0">
+      <div class="gallery-hero-slide" [style.background-image]="'linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url(' + slide + ')'">
+        <div class="banner-overlay"><h1><span>OUR</span> GALLERY</h1></div>
       </div>
     </div>
-
   </div>
 </section>
 
 <section class="gallery-page py-5">
   <div class="container text-center">
-
     <h2 class="gallery-title">Image Gallery</h2>
     <div class="gallery-dots"></div>
+    <p class="gallery-live-note" *ngIf="isLoadingManagedImages">Loading the latest church photos…</p>
+    <p class="gallery-live-note error" *ngIf="galleryError">{{ galleryError }}</p>
 
     <div class="gallery-filter">
-      <button
-        *ngFor="let category of categories"
-        [class.active]="selectedCategory === category"
-        (click)="selectCategory(category)"
-      >
+      <button *ngFor="let category of categories" [class.active]="selectedCategory === category" (click)="selectCategory(category)">
         {{ category }}
       </button>
     </div>
 
     <div class="row g-4 gallery-grid">
-
       <div class="col-md-4" *ngFor="let image of filteredImages">
-        <img [src]="image.src" class="gallery-img">
+        <figure class="gallery-figure">
+          <img [src]="image.src" class="gallery-img" [alt]="image.title || image.category + ' church photo'" loading="lazy">
+          <figcaption *ngIf="image.title">{{ image.title }}</figcaption>
+        </figure>
       </div>
-
     </div>
-
   </div>
 </section>

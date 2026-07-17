@@ -416,3 +416,260 @@
 
     </div>
 </section>
+
+<section class="announcement-section" *ngIf="announcements.length > 0">
+  <div class="container">
+    <div class="announcement-heading">
+      <span>Church Updates</span>
+      <h2>Latest Announcements</h2>
+    </div>
+    <div class="announcement-grid">
+      <article class="announcement-card" *ngFor="let announcement of announcements">
+        <div class="announcement-icon"><i class="bi bi-megaphone-fill"></i></div>
+        <div>
+          <h3>{{ announcement.title }}</h3>
+          <p>{{ announcement.message }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="verse-section" *ngIf="bibleVerse.published">
+  <div class="container">
+    <span class="verse-theme" *ngIf="bibleVerse.theme">{{ bibleVerse.theme }}</span>
+    <h2>Bible Verse of the Week</h2>
+    <p class="verse-text">“{{ bibleVerse.verse }}”</p>
+    <h4>{{ bibleVerse.reference }}</h4>
+  </div>
+</section>
+<section class="testimony-section">
+  <div class="container testimony-container">
+    <span class="testimony-label">Stories of Faith</span>
+    <h2>Testimonies</h2>
+    <p class="testimony-intro">
+      See how God is working in the lives of His people.
+    </p>
+
+    <div
+      class="testimony-carousel"
+      (mouseenter)="pauseTestimonyCarousel()"
+      (mouseleave)="resumeTestimonyCarousel()">
+
+      <button
+        type="button"
+        class="testimony-arrow testimony-arrow-left"
+        aria-label="View previous testimony"
+        (click)="scrollTestimonies('previous')">
+        <i class="bi bi-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <div
+        #testimonyTrack
+        class="testimony-track"
+        (scroll)="onTestimonyScroll()">
+
+        <article
+          class="testimony-card"
+          *ngFor="let testimony of testimonies; let index = index"
+          [class.testimony-card-active]="index === activeTestimonyIndex">
+
+          <div class="testimony-quote-mark" aria-hidden="true">“</div>
+
+          <p class="testimony-message">
+            {{ testimony.message }}
+          </p>
+
+          <button
+            *ngIf="isLongTestimony(testimony)"
+            type="button"
+            class="testimony-read-more"
+            (click)="openFullTestimony(testimony)">
+            Read full testimony
+            <span aria-hidden="true">→</span>
+          </button>
+
+          <div class="testimony-author">
+            <span class="testimony-avatar">
+              {{ testimony.name.charAt(0).toUpperCase() }}
+            </span>
+
+            <div class="testimony-author-info">
+              <h5>{{ testimony.name }}</h5>
+              <span>Church Testimony</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <button
+        type="button"
+        class="testimony-arrow testimony-arrow-right"
+        aria-label="View next testimony"
+        (click)="scrollTestimonies('next')">
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="testimony-dots" aria-label="Choose a testimony">
+      <button
+        type="button"
+        *ngFor="let testimony of testimonies; let index = index"
+        [class.active]="index === activeTestimonyIndex"
+        [attr.aria-label]="'View testimony ' + (index + 1)"
+        [attr.aria-current]="index === activeTestimonyIndex ? 'true' : null"
+        (click)="goToTestimony(index)">
+      </button>
+    </div>
+
+    <div class="testimony-actions">
+      <a
+        href="https://share.google/vhjQNQcyH2BgXzxyf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="google-review-btn">
+        <i class="bi bi-google" aria-hidden="true"></i>
+        Read Google Reviews
+      </a>
+
+      <button
+        type="button"
+        class="share-btn"
+        (click)="openModal()">
+        <i class="bi bi-pencil-square" aria-hidden="true"></i>
+        Share Your Testimony
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="prayer-cta">
+  <div class="prayer-cta-overlay"></div>
+
+  <div class="prayer-cta-content">
+    <span class="prayer-label">We Are Here for You</span>
+
+    <h2>Do You Need Prayer?</h2>
+
+    <p>
+      Whatever you are going through, you do not have to face it alone.
+      Share your prayer request with us, and our prayer team will stand
+      with you in faith.
+    </p>
+
+    <a
+      routerLink="/prayer-request"
+      class="prayer-cta-button">
+      Submit a Prayer Request
+      <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</section>
+
+
+<!-- FULL TESTIMONY MODAL -->
+<div
+  class="full-testimony-overlay"
+  *ngIf="selectedTestimony"
+  (click)="closeFullTestimony()">
+
+  <article
+    class="full-testimony-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="fullTestimonyTitle"
+    (click)="$event.stopPropagation()">
+
+    <button
+      type="button"
+      class="full-testimony-close"
+      aria-label="Close full testimony"
+      (click)="closeFullTestimony()">
+      &times;
+    </button>
+
+    <div class="full-testimony-quote" aria-hidden="true">“</div>
+
+    <span class="full-testimony-label">Church Testimony</span>
+
+    <h2 id="fullTestimonyTitle">
+      {{ selectedTestimony.name }}
+    </h2>
+
+    <p>
+      {{ selectedTestimony.message }}
+    </p>
+
+    <button
+      type="button"
+      class="full-testimony-done"
+      (click)="closeFullTestimony()">
+      Close
+    </button>
+  </article>
+</div>
+
+<div class="modal-overlay"
+     *ngIf="showModal"
+     (click)="closeModal()">
+
+    <div class="modal-content"
+         (click)="$event.stopPropagation()">
+
+        <span class="close-btn"
+              (click)="closeModal()">
+            &times;
+        </span>
+
+        <h2>Share Your Testimony</h2>
+
+        <input
+            type="text"
+            placeholder="Your Name"
+            [(ngModel)]="newTestimony.name">
+
+        <textarea
+            rows="6"
+            placeholder="Write your testimony..."
+            [(ngModel)]="newTestimony.message">
+        </textarea>
+
+        <button class="submit-btn" type="button" [disabled]="isSubmitting" (click)="addTestimony()">
+        
+            {{ isSubmitting ? 'Submitting...' : 'Submit' }}
+        
+        </button>
+
+    </div>
+
+</div>
+<!-- <section class="share-testimony-section">
+  <div class="container">
+    <h2>Share Your Testimony</h2>
+    <p>We would love to hear how God has worked in your life.</p>
+
+    <form>
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Email (Optional)">
+      <textarea rows="6"
+        placeholder="Write your testimony here..."></textarea>
+
+      <button type="submit">
+        Submit Testimony
+      </button>
+    </form>
+  </div>
+</section>
+<section class="prayer-section">
+  <div class="container">
+    <h2>Prayer Request</h2>
+    <p>Send us your prayer request. We would love to pray for you.</p>
+
+    <form class="prayer-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email / Phone">
+      <textarea rows="5" placeholder="Your Prayer Request" required></textarea>
+      <button type="submit">Submit Request</button>
+    </form>
+  </div>
+</section> -->

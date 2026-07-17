@@ -1,0 +1,234 @@
+<section class="admin-dashboard">
+  <div class="dashboard-shell">
+    <header class="dashboard-hero">
+      <div class="hero-copy">
+        <span class="eyebrow">El-Shaddai Church Admin</span>
+        <h1>Welcome back 👋</h1>
+        <p>Here is a clear overview of testimonies and prayer activity from your church website.</p>
+      </div>
+
+      <div class="hero-actions">
+        <div class="live-indicator" aria-label="Dashboard is connected">
+          <span class="live-dot"></span>
+          Live dashboard
+        </div>
+
+        <button class="logout-btn" type="button" (click)="logout()">
+          <span aria-hidden="true">↪</span>
+          Logout
+        </button>
+      </div>
+
+      <div class="hero-decoration hero-decoration-one"></div>
+      <div class="hero-decoration hero-decoration-two"></div>
+    </header>
+
+    <section class="summary-grid" aria-label="Dashboard summary">
+      <article class="summary-card testimony-pending-card">
+        <div class="summary-card-top">
+          <div class="summary-icon" aria-hidden="true">✦</div>
+          <span class="summary-trend" *ngIf="pendingTestimonies.length > 0">Needs review</span>
+        </div>
+        <div class="summary-content">
+          <strong>{{ pendingTestimonies.length }}</strong>
+          <span>Pending Testimonies</span>
+          <small>Waiting for your approval</small>
+        </div>
+      </article>
+
+      <article class="summary-card testimony-approved-card">
+        <div class="summary-card-top">
+          <div class="summary-icon" aria-hidden="true">✓</div>
+          <span class="summary-trend positive">Published</span>
+        </div>
+        <div class="summary-content">
+          <strong>{{ approvedTestimonies.length }}</strong>
+          <span>Approved Testimonies</span>
+          <small>Visible on the public website</small>
+        </div>
+      </article>
+
+      <article class="summary-card prayer-total-card">
+        <div class="summary-card-top">
+          <div class="summary-icon" aria-hidden="true">🙏</div>
+        </div>
+        <div class="summary-content">
+          <strong>{{ totalPrayerRequests }}</strong>
+          <span>Total Prayer Requests</span>
+          <small>All submitted requests</small>
+        </div>
+      </article>
+
+      <article class="summary-card prayer-new-card">
+        <div class="summary-card-top">
+          <div class="summary-icon" aria-hidden="true">✨</div>
+          <span class="summary-trend" *ngIf="newPrayerRequests > 0">New activity</span>
+        </div>
+        <div class="summary-content">
+          <strong>{{ newPrayerRequests }}</strong>
+          <span>New Prayer Requests</span>
+          <small>Waiting to be prayed for</small>
+        </div>
+      </article>
+
+      <article class="summary-card prayer-prayed-card">
+        <div class="summary-card-top">
+          <div class="summary-icon" aria-hidden="true">♡</div>
+          <span class="summary-trend positive">Completed</span>
+        </div>
+        <div class="summary-content">
+          <strong>{{ prayedPrayerRequests }}</strong>
+          <span>Prayed Requests</span>
+          <small>Marked as prayed</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel prayer-panel" id="prayer-requests">
+      <div class="panel-heading">
+        <div>
+          <span class="panel-label">Recent activity</span>
+          <h2>Latest Prayer Requests</h2>
+          <p>The most recent prayer requests submitted through the website.</p>
+        </div>
+
+        <a routerLink="/admin/prayer-requests" class="primary-link">
+          View all requests
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="dashboard-empty-state" *ngIf="latestPrayerRequests.length === 0">
+        <div class="empty-icon" aria-hidden="true">🙏</div>
+        <h3>No prayer requests yet</h3>
+        <p>New prayer requests will appear here automatically.</p>
+      </div>
+
+      <div class="recent-prayer-list" *ngIf="latestPrayerRequests.length > 0">
+        <article class="recent-prayer-item" *ngFor="let prayer of latestPrayerRequests; let index = index">
+          <div class="prayer-avatar" aria-hidden="true">
+            {{ getInitial(prayer.name) }}
+          </div>
+
+          <div class="prayer-preview">
+            <div class="prayer-title-row">
+              <h3>{{ prayer.name || 'Anonymous' }}</h3>
+
+              <span class="private-badge" *ngIf="prayer.isPrivate">Private</span>
+              <span class="request-status new-status" *ngIf="prayer.status === 'new'">New</span>
+              <span class="request-status prayed-status" *ngIf="prayer.status === 'prayed'">Prayed</span>
+            </div>
+
+            <p class="prayer-message">{{ prayer.request }}</p>
+
+            <div class="prayer-meta">
+              <span>◉ {{ formatCategory(prayer.category) }}</span>
+              <span>◷ {{ formatDate(prayer.createdAt) }}</span>
+            </div>
+          </div>
+
+          <a routerLink="/admin/prayer-requests" class="open-request-button" aria-label="Open prayer requests">
+            →
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="dashboard-panel testimony-panel" id="testimonies">
+      <div class="panel-heading">
+        <div>
+          <span class="panel-label amber-label">Moderation</span>
+          <h2>Pending Testimonies</h2>
+          <p>Review each submission before publishing it on the website.</p>
+        </div>
+
+        <button class="refresh-btn" type="button" [disabled]="isLoading" (click)="loadAllTestimonies()">
+          <span class="refresh-icon" [class.spinning]="isLoading" aria-hidden="true">↻</span>
+          {{ isLoading ? 'Loading...' : 'Refresh' }}
+        </button>
+      </div>
+
+      <div class="loading-state" *ngIf="isLoading">
+        <span class="loading-spinner"></span>
+        <p>Loading testimonies...</p>
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage">
+        <span aria-hidden="true">!</span>
+        {{ errorMessage }}
+      </div>
+
+      <div class="dashboard-empty-state compact" *ngIf="!isLoading && !errorMessage && pendingTestimonies.length === 0">
+        <div class="empty-icon success-empty" aria-hidden="true">✓</div>
+        <h3>You are all caught up</h3>
+        <p>There are no pending testimonies to review.</p>
+      </div>
+
+      <div class="testimony-list" *ngIf="!isLoading && pendingTestimonies.length > 0">
+        <article class="testimony-item" *ngFor="let testimony of pendingTestimonies">
+          <div class="testimony-avatar pending-avatar" aria-hidden="true">
+            {{ getInitial(testimony.name) }}
+          </div>
+
+          <div class="testimony-content">
+            <div class="testimony-title-row">
+              <h3>{{ testimony.name || 'Anonymous' }}</h3>
+              <span class="pending-badge">Pending review</span>
+            </div>
+            <p>“{{ testimony.message }}”</p>
+          </div>
+
+          <div class="testimony-actions">
+            <button class="approve-btn" type="button" [disabled]="processingId === testimony.id" (click)="approveTestimony(testimony)">
+              {{ processingId === testimony.id ? 'Processing...' : '✓ Approve' }}
+            </button>
+
+            <button class="delete-btn" type="button" [disabled]="processingId === testimony.id" (click)="deleteTestimony(testimony)">
+              Delete
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="dashboard-panel approved-panel">
+      <div class="panel-heading">
+        <div>
+          <span class="panel-label green-label">Published content</span>
+          <h2>Approved Testimonies</h2>
+          <p>These testimonies are currently visible on the public website.</p>
+        </div>
+
+        <div class="panel-count">{{ approvedTestimonies.length }} published</div>
+      </div>
+
+      <div class="dashboard-empty-state compact" *ngIf="!isLoading && !errorMessage && approvedTestimonies.length === 0">
+        <div class="empty-icon" aria-hidden="true">✦</div>
+        <h3>No approved testimonies yet</h3>
+        <p>Approved testimonies will appear here.</p>
+      </div>
+
+      <div class="testimony-list" *ngIf="approvedTestimonies.length > 0">
+        <article class="testimony-item approved-testimony" *ngFor="let testimony of approvedTestimonies">
+          <div class="testimony-avatar approved-avatar" aria-hidden="true">
+            {{ getInitial(testimony.name) }}
+          </div>
+
+          <div class="testimony-content">
+            <div class="testimony-title-row">
+              <h3>{{ testimony.name || 'Anonymous' }}</h3>
+              <span class="published-badge">Published</span>
+            </div>
+            <p>“{{ testimony.message }}”</p>
+          </div>
+
+          <div class="testimony-actions">
+            <button class="delete-btn subtle-delete" type="button" [disabled]="processingId === testimony.id" (click)="deleteApprovedTestimony(testimony)">
+              {{ processingId === testimony.id ? 'Processing...' : 'Remove' }}
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</section>

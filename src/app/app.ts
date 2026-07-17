@@ -1,13 +1,11 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
-import { Navbar } from './shared/navbar/navbar';
-import { Footer } from './shared/footer/footer';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router'; 
 import AOS from 'aos';
 import { filter } from 'rxjs';
 import { HostListener } from '@angular/core';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,0 +1,186 @@
+<section class="prayer-admin-page">
+
+  <header class="page-heading">
+    <div>
+      <span class="page-label">Submissions</span>
+      <h1>Prayer Requests</h1>
+      <p>Review and manage prayer requests submitted through the church website.</p>
+    </div>
+
+    <div class="heading-status">
+      <span class="status-dot"></span>
+      Live submissions
+    </div>
+  </header>
+
+  <div class="action-error" *ngIf="actionError">
+    <span>!</span>
+    {{ actionError }}
+  </div>
+
+  <ng-container *ngIf="prayerRequests$ | async as prayerRequests; else loadingState">
+
+    <section class="summary-grid">
+      <article class="summary-card total-summary">
+        <div class="summary-icon">🙏</div>
+        <div>
+          <span>Total Requests</span>
+          <strong>{{ prayerRequests.length }}</strong>
+          <small>All submissions</small>
+        </div>
+      </article>
+
+      <article class="summary-card new-summary">
+        <div class="summary-icon">✦</div>
+        <div>
+          <span>New Requests</span>
+          <strong>{{ getNewCount(prayerRequests) }}</strong>
+          <small>Waiting for prayer</small>
+        </div>
+      </article>
+
+      <article class="summary-card prayed-summary">
+        <div class="summary-icon">✓</div>
+        <div>
+          <span>Prayed</span>
+          <strong>{{ getPrayedCount(prayerRequests) }}</strong>
+          <small>Completed requests</small>
+        </div>
+      </article>
+    </section>
+
+    <section class="requests-panel">
+      <div class="panel-heading">
+        <div>
+          <span class="panel-label">Request Inbox</span>
+          <h2>All Prayer Requests</h2>
+          <p>Newest submissions are displayed first.</p>
+        </div>
+
+        <span class="request-count">
+          {{ prayerRequests.length }}
+          {{ prayerRequests.length === 1 ? 'request' : 'requests' }}
+        </span>
+      </div>
+
+      <div class="empty-state" *ngIf="prayerRequests.length === 0">
+        <div class="empty-icon">🙏</div>
+        <h3>No prayer requests yet</h3>
+        <p>New prayer requests submitted from the website will appear here.</p>
+      </div>
+
+      <div class="request-list" *ngIf="prayerRequests.length > 0">
+
+        <article
+          class="request-card"
+          *ngFor="let prayer of prayerRequests; trackBy: trackByRequestId"
+          [class.prayed-card]="prayer.status === 'prayed'">
+
+          <div class="request-header">
+            <div class="request-person">
+              <div class="person-avatar">
+                {{ getInitial(prayer.name) }}
+              </div>
+
+              <div class="person-details">
+                <div class="name-row">
+                  <h3>{{ prayer.name || 'Anonymous' }}</h3>
+
+                  <span class="privacy-badge" *ngIf="prayer.isPrivate">
+                    Private
+                  </span>
+
+                  <span
+                    class="status-badge new-status"
+                    *ngIf="prayer.status === 'new'">
+                    New
+                  </span>
+
+                  <span
+                    class="status-badge prayed-status"
+                    *ngIf="prayer.status === 'prayed'">
+                    Prayed
+                  </span>
+                </div>
+
+                <p class="submitted-date">
+                  Submitted {{ formatDate(prayer.createdAt) }}
+                </p>
+              </div>
+            </div>
+
+            <span class="category-badge">
+              {{ formatCategory(prayer.category) }}
+            </span>
+          </div>
+
+          <div class="request-message">
+            <span class="message-label">Prayer request</span>
+            <p>{{ prayer.request }}</p>
+          </div>
+
+          <div class="contact-details">
+            <article class="contact-item" *ngIf="prayer.email">
+              <span>Email</span>
+              <a [href]="'mailto:' + prayer.email">{{ prayer.email }}</a>
+            </article>
+
+            <article class="contact-item" *ngIf="prayer.phone">
+              <span>Phone</span>
+              <a [href]="'tel:' + prayer.phone">{{ prayer.phone }}</a>
+            </article>
+
+            <article class="contact-item">
+              <span>Contact permission</span>
+              <strong [class.allowed]="prayer.permissionToContact">
+                {{ prayer.permissionToContact ? 'Allowed' : 'Not allowed' }}
+              </strong>
+            </article>
+          </div>
+
+          <footer class="request-footer">
+            <span class="privacy-note" *ngIf="prayer.isPrivate">
+              This request is private and should not be published.
+            </span>
+
+            <div class="request-actions">
+              <button
+                type="button"
+                class="prayed-button"
+                [disabled]="processingId === prayer.id"
+                *ngIf="prayer.status === 'new'"
+                (click)="markAsPrayed(prayer.id)">
+                {{ processingId === prayer.id ? 'Updating...' : '✓ Mark as Prayed' }}
+              </button>
+
+              <button
+                type="button"
+                class="new-button"
+                [disabled]="processingId === prayer.id"
+                *ngIf="prayer.status === 'prayed'"
+                (click)="markAsNew(prayer.id)">
+                {{ processingId === prayer.id ? 'Updating...' : 'Mark as New' }}
+              </button>
+
+              <button
+                type="button"
+                class="delete-button"
+                [disabled]="processingId === prayer.id"
+                (click)="deletePrayerRequest(prayer.id, prayer.name)">
+                Delete
+              </button>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </section>
+  </ng-container>
+
+  <ng-template #loadingState>
+    <div class="loading-state">
+      <span class="loading-spinner"></span>
+      <p>Loading prayer requests...</p>
+    </div>
+  </ng-template>
+
+</section>

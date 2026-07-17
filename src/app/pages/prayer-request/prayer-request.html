@@ -1,0 +1,285 @@
+<section class="prayer-hero">
+  <button
+    class="back-button"
+    type="button"
+    (click)="goBack()"
+    aria-label="Go back to the previous page">
+    <span aria-hidden="true">←</span>
+    Back
+  </button>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="section-label">We Are Here to Pray With You</span>
+
+    <h1>Submit a Prayer Request</h1>
+
+    <p>
+      Whatever you are facing, you do not have to face it alone.
+      Share your prayer request with us, and our prayer team will
+      stand with you in faith.
+    </p>
+  </div>
+</section>
+
+<section class="prayer-section">
+  <div class="prayer-container">
+
+    <div class="prayer-information">
+      <span class="section-label">Prayer Changes Things</span>
+
+      <h2>Let Us Stand With You in Prayer</h2>
+
+      <p>
+        Every request is handled with care, compassion, and respect.
+        You may choose to keep your request private.
+      </p>
+
+      <div class="information-card">
+        <div class="information-icon">🙏</div>
+
+        <div>
+          <h3>Confidential Prayer</h3>
+
+          <p>
+            Private prayer requests will only be seen by the authorized
+            prayer team.
+          </p>
+        </div>
+      </div>
+
+      <div class="information-card">
+        <div class="information-icon">✝</div>
+
+        <div>
+          <h3>Prayer With Faith</h3>
+
+          <p>
+            We believe that God hears prayer and brings comfort,
+            strength, healing, and direction.
+          </p>
+        </div>
+      </div>
+
+      <blockquote>
+        “Call to me and I will answer you and tell you great and
+        unsearchable things you do not know.”
+
+        <span>Jeremiah 33:3</span>
+      </blockquote>
+    </div>
+
+    <div class="prayer-form-card">
+      <div class="form-heading">
+        <span class="section-label">Share Your Request</span>
+
+        <h2>How Can We Pray for You?</h2>
+
+        <p>
+          Fields marked with an asterisk are required.
+        </p>
+      </div>
+
+      <div
+        class="success-message"
+        role="alert"
+        *ngIf="submitSuccess">
+        <strong>Thank you for sharing your prayer request.</strong>
+
+        <span>
+          Our prayer team will remember you in prayer.
+        </span>
+      </div>
+
+      <div
+        class="error-message"
+        role="alert"
+        *ngIf="submitError">
+        {{ submitError }}
+      </div>
+
+      <form
+        [formGroup]="prayerForm"
+        (ngSubmit)="submitPrayerRequest()"
+        novalidate>
+
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="name">
+              Your name
+              <span>*</span>
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              placeholder="Enter your name"
+              autocomplete="name">
+
+            <small
+              class="validation-error"
+              *ngIf="nameControl?.touched && nameControl?.invalid">
+
+              <span *ngIf="nameControl?.errors?.['required']">
+                Please enter your name.
+              </span>
+
+              <span *ngIf="nameControl?.errors?.['minlength']">
+                Name must contain at least two characters.
+              </span>
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="email">
+              Email address
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="Enter your email"
+              autocomplete="email">
+
+            <small
+              class="validation-error"
+              *ngIf="emailControl?.touched && emailControl?.invalid">
+              Please enter a valid email address.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">
+              Phone number
+            </label>
+
+            <input
+              id="phone"
+              type="tel"
+              formControlName="phone"
+              placeholder="+49..."
+              autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="category">
+              Prayer category
+              <span>*</span>
+            </label>
+
+            <select
+              id="category"
+              formControlName="category">
+
+              <option value="" disabled>
+                Select a category
+              </option>
+
+              <option value="healing">Healing</option>
+              <option value="family">Family</option>
+              <option value="work">Work and career</option>
+              <option value="financial">Financial needs</option>
+              <option value="spiritual">Spiritual growth</option>
+              <option value="guidance">Guidance</option>
+              <option value="thanksgiving">Thanksgiving</option>
+              <option value="other">Other</option>
+            </select>
+
+            <small
+              class="validation-error"
+              *ngIf="categoryControl?.touched && categoryControl?.invalid">
+              Please select a prayer category.
+            </small>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="request">
+              Prayer request
+              <span>*</span>
+            </label>
+
+            <textarea
+              id="request"
+              rows="7"
+              formControlName="request"
+              placeholder="Please share your prayer request...">
+            </textarea>
+
+            <div class="textarea-information">
+              <small
+                class="validation-error"
+                *ngIf="requestControl?.touched && requestControl?.invalid">
+
+                <span *ngIf="requestControl?.errors?.['required']">
+                  Please enter your prayer request.
+                </span>
+
+                <span *ngIf="requestControl?.errors?.['minlength']">
+                  Please provide at least ten characters.
+                </span>
+
+                <span *ngIf="requestControl?.errors?.['maxlength']">
+                  The request cannot exceed 2,000 characters.
+                </span>
+              </small>
+
+              <small class="character-count">
+                {{ requestControl?.value?.length || 0 }}/2000
+              </small>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              formControlName="isPrivate">
+
+            <span>
+              Keep this prayer request private
+            </span>
+          </label>
+
+          <p>
+            Private requests will only be accessible to the authorized
+            prayer team.
+          </p>
+        </div>
+
+        <div class="checkbox-group">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              formControlName="permissionToContact">
+
+            <span>
+              The church may contact me regarding this request
+            </span>
+          </label>
+        </div>
+
+        <button
+          class="submit-button"
+          type="submit"
+          [disabled]="isSubmitting">
+
+          <span *ngIf="!isSubmitting">
+            Submit Prayer Request
+          </span>
+
+          <span *ngIf="isSubmitting">
+            Submitting...
+          </span>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</section>

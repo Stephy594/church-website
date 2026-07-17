@@ -39,7 +39,7 @@
               <h5>Church Name</h5>
 
               <p>
-                El-Shaddai International Pentecostal Church Berlin
+                {{ settings.churchName }}
               </p>
             </div>
           </div>
@@ -53,9 +53,7 @@
               <h5>Address</h5>
 
               <p>
-                Rothenburgstraße 12a-13<br>
-                12165 Berlin<br>
-                Germany
+                {{ settings.address }}
               </p>
             </div>
           </div>
@@ -69,7 +67,7 @@
               <h5>Sunday Worship</h5>
 
               <p>
-                Every Sunday | 4 PM – 7 PM
+                {{ settings.serviceTime }}
               </p>
             </div>
           </div>
@@ -127,6 +125,42 @@
       </div>
 
     </div>
+
+
+    <section class="contact-form-card shadow mt-5">
+      <div class="contact-form-heading">
+        <span>Send a Message</span>
+        <h2>Contact the Church Team</h2>
+        <p>Messages submitted here will appear in the admin Contact Messages inbox.</p>
+      </div>
+
+      <p class="contact-notice success" *ngIf="successMessage">{{ successMessage }}</p>
+      <p class="contact-notice error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <form class="contact-form-grid" (ngSubmit)="submitMessage()">
+        <label>
+          Name
+          <input name="name" [(ngModel)]="form.name" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" [(ngModel)]="form.email" required>
+        </label>
+        <label class="full">
+          Subject
+          <input name="subject" [(ngModel)]="form.subject">
+        </label>
+        <label class="full">
+          Message
+          <textarea name="message" [(ngModel)]="form.message" rows="6" required></textarea>
+        </label>
+        <div class="full">
+          <button class="contact-submit-btn" type="submit" [disabled]="isSubmitting">
+            {{ isSubmitting ? 'Sending…' : 'Send Message' }}
+          </button>
+        </div>
+      </form>
+    </section>
 
   </div>
 </section>

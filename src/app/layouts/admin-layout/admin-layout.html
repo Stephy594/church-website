@@ -1,0 +1,42 @@
+<div class="admin-shell" [class.sidebar-open]="isSidebarOpen">
+  <button class="mobile-overlay" type="button" aria-label="Close navigation" *ngIf="isSidebarOpen" (click)="closeSidebar()"></button>
+
+  <aside class="admin-sidebar">
+    <div class="brand-area">
+      <div class="brand-mark">ES</div>
+      <div class="brand-copy"><strong>El-Shaddai</strong><span>Administration</span></div>
+      <button class="sidebar-close" type="button" aria-label="Close sidebar" (click)="closeSidebar()">×</button>
+    </div>
+
+    <nav class="admin-navigation" aria-label="Admin navigation">
+      <span class="navigation-label">Main menu</span>
+      <a class="navigation-link" routerLink="/admin/dashboard" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">▦</span><span>Dashboard</span></a>
+      <a class="navigation-link" routerLink="/admin/testimonies" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">✦</span><span>Testimonies</span><span class="navigation-badge">Archive</span></a>
+      <a class="navigation-link" routerLink="/admin/prayer-requests" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">♥</span><span>Prayer Requests</span></a>
+
+      <span class="navigation-label section-label">Content</span>
+      <a class="navigation-link" routerLink="/admin/events" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">□</span><span>Events</span></a>
+      <!-- <a class="navigation-link" routerLink="/admin/gallery" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">▣</span><span>Gallery</span></a> -->
+      <a class="navigation-link" routerLink="/admin/bible-verse" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">✝</span><span>Bible Verse</span></a>
+      <a class="navigation-link" routerLink="/admin/announcements" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">◈</span><span>Announcements</span></a>
+
+      <span class="navigation-label section-label">Communication</span>
+      <a class="navigation-link" routerLink="/admin/contact-messages" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">✉</span><span>Messages</span></a>
+      <a class="navigation-link" routerLink="/admin/subscribers" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">◎</span><span>Subscribers</span></a>
+      <a class="navigation-link" routerLink="/admin/settings" routerLinkActive="active" (click)="closeSidebar()"><span class="navigation-icon">⚙</span><span>Settings</span></a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a class="public-site-link" routerLink="/" target="_blank"><span>↗</span>View public website</a>
+      <button class="logout-link" type="button" (click)="logout()"><span>↪</span>Logout</button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="mobile-header">
+      <button class="menu-button" type="button" aria-label="Open admin navigation" (click)="openSidebar()"><span></span><span></span><span></span></button>
+      <div class="mobile-brand"><span class="mobile-brand-mark">ES</span><strong>El-Shaddai Admin</strong></div>
+    </header>
+    <div class="admin-content"><router-outlet></router-outlet></div>
+  </main>
+</div>
